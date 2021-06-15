@@ -1,16 +1,23 @@
-//
-//  ContentView.swift
-//  sleep-export
-//
-//  Created by Sukhorukov Nikita on 15.06.2021.
-//
-
 import SwiftUI
+import HealthKit
 
 struct ContentView: View {
+    var healthExporter = HealthExporter()
+    @State var sessions: [HealthExporter.SleepSession] = []
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if healthExporter.error != "" {
+            Text("error: " + healthExporter.error)
+        } else {
+            let _ = print(healthExporter.sessions)
+            ForEach(healthExporter.sessions){ session in
+                Text(session.id)
+                Text("some")
+            }
+            Button("some"){
+                healthExporter.fillSleepSessions()
+            }
+        }
     }
 }
 
