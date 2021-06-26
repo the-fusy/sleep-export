@@ -7,25 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD93111F26795A26006099E2 /* health_exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93111E26795A26006099E2 /* health_exporter.swift */; };
-		CDA177042678CAB6002F4DBC /* sleep_exportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA177032678CAB6002F4DBC /* sleep_exportApp.swift */; };
-		CDA177062678CAB6002F4DBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA177052678CAB6002F4DBC /* ContentView.swift */; };
 		CDA177082678CAB8002F4DBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA177072678CAB8002F4DBC /* Assets.xcassets */; };
 		CDA1770B2678CAB8002F4DBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA1770A2678CAB8002F4DBC /* Preview Assets.xcassets */; };
 		CDA177152678CD3E002F4DBC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA177142678CD3E002F4DBC /* HealthKit.framework */; };
+		CDAF0ECD268768B400DB7E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAF0ECC268768B400DB7E9F /* AppDelegate.swift */; };
+		CDAF0ECF26876D7000DB7E9F /* HealthExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAF0ECE26876D7000DB7E9F /* HealthExporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD93111E26795A26006099E2 /* health_exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health_exporter.swift; sourceTree = "<group>"; };
 		CDA177002678CAB6002F4DBC /* sleep-export.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sleep-export.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDA177032678CAB6002F4DBC /* sleep_exportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleep_exportApp.swift; sourceTree = "<group>"; };
-		CDA177052678CAB6002F4DBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CDA177072678CAB8002F4DBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDA1770A2678CAB8002F4DBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDA1770C2678CAB8002F4DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA177122678CD3E002F4DBC /* sleep-exportRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "sleep-exportRelease.entitlements"; sourceTree = "<group>"; };
 		CDA177142678CD3E002F4DBC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CDA177162678CFE3002F4DBC /* sleep-export.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "sleep-export.entitlements"; sourceTree = "<group>"; };
+		CDAF0ECC268768B400DB7E9F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CDAF0ECE26876D7000DB7E9F /* HealthExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthExporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +58,10 @@
 		CDA177022678CAB6002F4DBC /* sleep-export */ = {
 			isa = PBXGroup;
 			children = (
+				CDAF0ECE26876D7000DB7E9F /* HealthExporter.swift */,
+				CDAF0ECC268768B400DB7E9F /* AppDelegate.swift */,
 				CDA177162678CFE3002F4DBC /* sleep-export.entitlements */,
 				CDA177122678CD3E002F4DBC /* sleep-exportRelease.entitlements */,
-				CDA177032678CAB6002F4DBC /* sleep_exportApp.swift */,
-				CD93111E26795A26006099E2 /* health_exporter.swift */,
-				CDA177052678CAB6002F4DBC /* ContentView.swift */,
 				CDA177072678CAB8002F4DBC /* Assets.xcassets */,
 				CDA1770C2678CAB8002F4DBC /* Info.plist */,
 				CDA177092678CAB8002F4DBC /* Preview Content */,
@@ -157,9 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA177062678CAB6002F4DBC /* ContentView.swift in Sources */,
-				CD93111F26795A26006099E2 /* health_exporter.swift in Sources */,
-				CDA177042678CAB6002F4DBC /* sleep_exportApp.swift in Sources */,
+				CDAF0ECF26876D7000DB7E9F /* HealthExporter.swift in Sources */,
+				CDAF0ECD268768B400DB7E9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
