@@ -25,6 +25,19 @@ class HealthExporter {
         var id: String
         var startDate: Date
         var endDate: Date
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case startDate = "start_date"
+            case endDate = "end_date"
+        }
+
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(id, forKey: .id)
+            try container.encode(startDate, forKey: .startDate)
+            try container.encode(endDate, forKey: .endDate)
+        }
     }
     
     struct ExportData: Codable {
@@ -81,7 +94,9 @@ class HealthExporter {
     }
     
     func sendData(exportData: ExportData) {
-        guard let data = try? JSONEncoder().encode(exportData) else {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        guard let data = try? encoder.encode(exportData) else {
             self.handleError(error: "can't encode data: " + String(reflecting: exportData))
             return
         }
