@@ -105,6 +105,7 @@ class HealthExporter {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Api-Key ...", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.uploadTask(with: request, from: data) {
             _, response, error in

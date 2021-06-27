@@ -18,6 +18,23 @@ class Event:
         self.end_date = end_date
         self.create_date = datetime.utcnow()
 
+    @classmethod
+    def from_ical(cls, ical: str):
+        event = cls('', '', datetime.now(), datetime.now())
+        uid, name, start_date, end_date = 'UID:', 'SUMMARY:', 'DTSTART:', 'DTEND:'
+
+        for i in ical.split('\n'):
+            if i.startswith(uid):
+                event.uid = i[len(uid):]
+            elif i.startswith(name):
+                event.name = i[len(name):]
+            elif i.startswith(start_date):
+                event.start_date = datetime.strptime(i[len(start_date):], DATE_FORMAT)
+            elif i.startswith(end_date):
+                event.end_date = datetime.strptime(i[len(end_date):], DATE_FORMAT)
+
+        return event
+
     def generate_ical(self):
         lines = [
             "BEGIN:VEVENT",
@@ -34,6 +51,20 @@ class Event:
 class Calendar:
     def __init__(self):
         self.events = {}
+
+    @classmethod
+    def from_ical(cls, ical):
+        calendar = cls()
+
+        next_event = ical.find('BEGIN:VEVENT')
+        while next_event != -1:
+            end_event = ical.find('END:VEVENT', next_event)
+            event = Event.from_ical(ical[next_event:end_event])
+            calendar.add_event(event)
+            next_event = ical.find('BEGIN:VEVENT', next_event + 1)
+        
+        return calendar
+
 
     def add_event(self, event: Event):
         if event.uid not in self.events:
