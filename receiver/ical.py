@@ -67,8 +67,7 @@ class Calendar:
 
 
     def add_event(self, event: Event):
-        if event.uid not in self.events:
-            self.events[event.uid] = event
+        self.events[event.start_date] = event
 
     def generate_ical(self):
         lines = [
